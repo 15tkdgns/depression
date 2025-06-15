@@ -1,0 +1,727 @@
+{
+  "DNN": {
+    "parameters": {
+      "layers": [
+        {
+          "name": "dense",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "units": 1024,
+          "activation": "relu",
+          "use_bias": true,
+          "kernel_initializer": {
+            "module": "keras.initializers",
+            "class_name": "HeNormal",
+            "config": {
+              "seed": null
+            },
+            "registered_name": null
+          },
+          "bias_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "kernel_regularizer": null,
+          "bias_regularizer": null,
+          "kernel_constraint": null,
+          "bias_constraint": null
+        },
+        {
+          "name": "batch_normalization",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "axis": -1,
+          "momentum": 0.99,
+          "epsilon": 0.001,
+          "center": true,
+          "scale": true,
+          "beta_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "gamma_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_mean_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_variance_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "beta_regularizer": null,
+          "gamma_regularizer": null,
+          "beta_constraint": null,
+          "gamma_constraint": null,
+          "synchronized": false
+        },
+        {
+          "name": "dropout",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "rate": 0.2,
+          "seed": null,
+          "noise_shape": null
+        },
+        {
+          "name": "dense_1",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "units": 512,
+          "activation": "relu",
+          "use_bias": true,
+          "kernel_initializer": {
+            "module": "keras.initializers",
+            "class_name": "HeNormal",
+            "config": {
+              "seed": null
+            },
+            "registered_name": null
+          },
+          "bias_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "kernel_regularizer": null,
+          "bias_regularizer": null,
+          "kernel_constraint": null,
+          "bias_constraint": null
+        },
+        {
+          "name": "batch_normalization_1",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "axis": -1,
+          "momentum": 0.99,
+          "epsilon": 0.001,
+          "center": true,
+          "scale": true,
+          "beta_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "gamma_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_mean_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_variance_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "beta_regularizer": null,
+          "gamma_regularizer": null,
+          "beta_constraint": null,
+          "gamma_constraint": null,
+          "synchronized": false
+        },
+        {
+          "name": "dropout_1",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "rate": 0.2,
+          "seed": null,
+          "noise_shape": null
+        },
+        {
+          "name": "dense_2",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "units": 256,
+          "activation": "relu",
+          "use_bias": true,
+          "kernel_initializer": {
+            "module": "keras.initializers",
+            "class_name": "HeNormal",
+            "config": {
+              "seed": null
+            },
+            "registered_name": null
+          },
+          "bias_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "kernel_regularizer": null,
+          "bias_regularizer": null,
+          "kernel_constraint": null,
+          "bias_constraint": null
+        },
+        {
+          "name": "batch_normalization_2",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "axis": -1,
+          "momentum": 0.99,
+          "epsilon": 0.001,
+          "center": true,
+          "scale": true,
+          "beta_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "gamma_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_mean_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_variance_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "beta_regularizer": null,
+          "gamma_regularizer": null,
+          "beta_constraint": null,
+          "gamma_constraint": null,
+          "synchronized": false
+        },
+        {
+          "name": "dropout_2",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "rate": 0.2,
+          "seed": null,
+          "noise_shape": null
+        },
+        {
+          "name": "dense_3",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "units": 128,
+          "activation": "relu",
+          "use_bias": true,
+          "kernel_initializer": {
+            "module": "keras.initializers",
+            "class_name": "HeNormal",
+            "config": {
+              "seed": null
+            },
+            "registered_name": null
+          },
+          "bias_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "kernel_regularizer": null,
+          "bias_regularizer": null,
+          "kernel_constraint": null,
+          "bias_constraint": null
+        },
+        {
+          "name": "batch_normalization_3",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "axis": -1,
+          "momentum": 0.99,
+          "epsilon": 0.001,
+          "center": true,
+          "scale": true,
+          "beta_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "gamma_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_mean_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "moving_variance_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Ones",
+            "config": {},
+            "registered_name": null
+          },
+          "beta_regularizer": null,
+          "gamma_regularizer": null,
+          "beta_constraint": null,
+          "gamma_constraint": null,
+          "synchronized": false
+        },
+        {
+          "name": "dropout_3",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "rate": 0.2,
+          "seed": null,
+          "noise_shape": null
+        },
+        {
+          "name": "dense_4",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "units": 3,
+          "activation": "softmax",
+          "use_bias": true,
+          "kernel_initializer": {
+            "module": "keras.initializers",
+            "class_name": "GlorotUniform",
+            "config": {
+              "seed": null
+            },
+            "registered_name": null
+          },
+          "bias_initializer": {
+            "module": "keras.initializers",
+            "class_name": "Zeros",
+            "config": {},
+            "registered_name": null
+          },
+          "kernel_regularizer": null,
+          "bias_regularizer": null,
+          "kernel_constraint": null,
+          "bias_constraint": null
+        }
+      ],
+      "optimizer": "<keras.src.optimizers.adam.Adam object at 0x7fb5dd91da30>",
+      "params": 709379,
+      "input_shape": [
+        null,
+        11
+      ]
+    },
+    "metrics": {
+      "accuracy": 0.7372654155495979,
+      "precision": 0.7125734406556408,
+      "recall": 0.7372654155495979,
+      "f1_score": 0.6750119029156193,
+      "confusion_matrix": [
+        [
+          737,
+          12,
+          1
+        ],
+        [
+          132,
+          4,
+          3
+        ],
+        [
+          145,
+          1,
+          84
+        ]
+      ]
+    },
+    "fit_time_seconds": 13.73457932472229
+  },
+  "LogisticRegression": {
+    "parameters": {
+      "C": 1.0,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": null,
+      "max_iter": 1000,
+      "multi_class": "deprecated",
+      "n_jobs": null,
+      "penalty": "l2",
+      "random_state": 42,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "metrics": {
+      "accuracy": 0.6702412868632708,
+      "precision": 0.44922338261613326,
+      "recall": 0.6702412868632708,
+      "f1_score": 0.5379143554279863,
+      "confusion_matrix": [
+        [
+          750,
+          0,
+          0
+        ],
+        [
+          139,
+          0,
+          0
+        ],
+        [
+          230,
+          0,
+          0
+        ]
+      ]
+    },
+    "fit_time_seconds": 0.012757062911987305
+  },
+  "RandomForest": {
+    "parameters": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 100,
+      "n_jobs": null,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "metrics": {
+      "accuracy": 0.8239499553172476,
+      "precision": 0.7718821450110565,
+      "recall": 0.8239499553172476,
+      "f1_score": 0.784179451749886,
+      "confusion_matrix": [
+        [
+          727,
+          22,
+          1
+        ],
+        [
+          133,
+          6,
+          0
+        ],
+        [
+          41,
+          0,
+          189
+        ]
+      ]
+    },
+    "fit_time_seconds": 0.23116660118103027
+  },
+  "XGBoost": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "base_score": null,
+      "booster": null,
+      "callbacks": null,
+      "colsample_bylevel": null,
+      "colsample_bynode": null,
+      "colsample_bytree": null,
+      "device": null,
+      "early_stopping_rounds": null,
+      "enable_categorical": false,
+      "eval_metric": "mlogloss",
+      "feature_types": null,
+      "gamma": null,
+      "grow_policy": null,
+      "importance_type": null,
+      "interaction_constraints": null,
+      "learning_rate": null,
+      "max_bin": null,
+      "max_cat_threshold": null,
+      "max_cat_to_onehot": null,
+      "max_delta_step": null,
+      "max_depth": null,
+      "max_leaves": null,
+      "min_child_weight": null,
+      "missing": NaN,
+      "monotone_constraints": null,
+      "multi_strategy": null,
+      "n_estimators": null,
+      "n_jobs": null,
+      "num_parallel_tree": null,
+      "random_state": 42,
+      "reg_alpha": null,
+      "reg_lambda": null,
+      "sampling_method": null,
+      "scale_pos_weight": null,
+      "subsample": null,
+      "tree_method": null,
+      "validate_parameters": null,
+      "verbosity": null
+    },
+    "metrics": {
+      "accuracy": 0.8257372654155496,
+      "precision": 0.7660360284728597,
+      "recall": 0.8257372654155496,
+      "f1_score": 0.7814984342200123,
+      "confusion_matrix": [
+        [
+          731,
+          15,
+          4
+        ],
+        [
+          133,
+          4,
+          2
+        ],
+        [
+          40,
+          1,
+          189
+        ]
+      ]
+    },
+    "fit_time_seconds": 0.1479930877685547
+  },
+  "SVM": {
+    "parameters": {
+      "C": 1.0,
+      "break_ties": false,
+      "cache_size": 200,
+      "class_weight": null,
+      "coef0": 0.0,
+      "decision_function_shape": "ovr",
+      "degree": 3,
+      "gamma": "scale",
+      "kernel": "rbf",
+      "max_iter": -1,
+      "probability": true,
+      "random_state": 42,
+      "shrinking": true,
+      "tol": 0.001,
+      "verbose": false
+    },
+    "metrics": {
+      "accuracy": 0.837354781054513,
+      "precision": 0.7448979200466388,
+      "recall": 0.837354781054513,
+      "f1_score": 0.7820639721164192,
+      "confusion_matrix": [
+        [
+          750,
+          0,
+          0
+        ],
+        [
+          139,
+          0,
+          0
+        ],
+        [
+          43,
+          0,
+          187
+        ]
+      ]
+    },
+    "fit_time_seconds": 0.9833459854125977
+  },
+  "AdaBoost": {
+    "parameters": {
+      "algorithm": "SAMME.R",
+      "estimator": null,
+      "learning_rate": 1.0,
+      "n_estimators": 50,
+      "random_state": 42
+    },
+    "metrics": {
+      "accuracy": 0.837354781054513,
+      "precision": 0.8066229701127166,
+      "recall": 0.837354781054513,
+      "f1_score": 0.7853933930199388,
+      "confusion_matrix": [
+        [
+          746,
+          2,
+          2
+        ],
+        [
+          137,
+          2,
+          0
+        ],
+        [
+          41,
+          0,
+          189
+        ]
+      ]
+    },
+    "fit_time_seconds": 0.07828164100646973
+  },
+  "LightGBM": {
+    "parameters": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 1.0,
+      "importance_type": "split",
+      "learning_rate": 0.1,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 100,
+      "n_jobs": null,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 1.0,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0
+    },
+    "metrics": {
+      "accuracy": 0.8302055406613047,
+      "precision": 0.7787783777260657,
+      "recall": 0.8302055406613047,
+      "f1_score": 0.7859065438391434,
+      "confusion_matrix": [
+        [
+          735,
+          12,
+          3
+        ],
+        [
+          134,
+          5,
+          0
+        ],
+        [
+          40,
+          1,
+          189
+        ]
+      ]
+    },
+    "fit_time_seconds": 0.1258556842803955
+  }
+}
