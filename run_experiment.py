@@ -15,6 +15,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
 from pytorch_tabnet.tab_model import TabNetClassifier
+from imblearn.over_sampling import SMOTE, ADASYN, BorderlineSMOTE
 import os
 
 #오버샘플링 실험 함수 import
@@ -175,6 +176,30 @@ def main(search_time_minutes=5):
     df_k_results.to_excel('reports/smote_k_neighbors_tuning.xlsx', index=False)
     print("[저장] SMOTE k_neighbors 튜닝 결과 → reports/smote_k_neighbors_tuning.xlsx")
 
+    # ================== [A] 오버샘플링 전/후 분포 비교 ==================
+    # 1. 오버샘플링 적용 전 y_train 분포
+    original_counts = y_train.value_counts().sort_index()
+    original_ratio = original_counts / len(y_train) * 100
+
+    # 2. SMOTE 적용 후 분포 (기본 k_neighbors=5)
+    smote = SMOTE(random_state=config.SEED)
+    X_train_smote, y_train_smote = smote.fit_resample(X_train_scaled, y_train)
+    smote_counts = pd.Series(y_train_smote).value_counts().sort_index()
+    smote_ratio = smote_counts / len(y_train_smote) * 100
+
+    # 3. 분포 표로 저장
+    dist_compare_df = pd.DataFrame({
+        '원본 개수': original_counts,
+        '원본 비율(%)': original_ratio.round(2),
+        'SMOTE 개수': smote_counts,
+        'SMOTE 비율(%)': smote_ratio.round(2)
+    })
+    dist_compare_df.index = ['정상(0)', '경증(1)', '중등도이상(2)']
+
+    print("\n[분포 비교] 오버샘플링 전/후 학습데이터 분포:")
+    print(dist_compare_df)
+
+
 
     # === [4] Optuna 하이퍼파라미터 탐색 ===
     timeout = search_time_minutes * 1  # 단위: 초
@@ -258,7 +283,21 @@ def main(search_time_minutes=5):
         param_records.append({'Model': model_name, 'Hyperparameters': best_params})
 
 
-    # === [6] 결과 리포트 저장 ===
+    
+
+    df_os_results = oversampling_comparison(
+        X_train_scaled, y_train, X_test_scaled, y_test, config.SEED
+    )
+    os.makedirs("reports", exist_ok=True)
+    # 기존 결과를 엑셀에 쓰기 + 분포 비교 시트도 추가
+    with pd.ExcelWriter('reports/oversampling_methods_comparison.xlsx', engine='xlsxwriter') as writer:
+        df_os_results.to_excel(writer, sheet_name='Performance', index=False)
+        dist_compare_df.to_excel(writer, sheet_name='Distribution', index=True)
+    print("[저장] 오버샘플링 성능 및 분포 비교 결과 → reports/oversampling_methods_comparison.xlsx")
+
+
+    # === [6] 결과 리포트 저장 ===  
+
     now = datetime.now().strftime("%Y%m%d_%H%M%S")
     os.makedirs("reports", exist_ok=True)
     excel_filename = f"reports/{now}_detailed_model_report.xlsx"
@@ -266,6 +305,8 @@ def main(search_time_minutes=5):
         pd.DataFrame(model_records).to_excel(writer, sheet_name='Performance', index=False)
         pd.DataFrame(param_records).to_excel(writer, sheet_name='Hyperparameters', index=False)
     print(f"\n모든 모델 결과가 '{excel_filename}'에 저장되었습니다.")
+    
+    
 
 if __name__ == "__main__":
     main(search_time_minutes=5)
